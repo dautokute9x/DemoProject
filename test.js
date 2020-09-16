@@ -21,7 +21,7 @@ class App4 extends Component {
     const {name} = this.props;
     return (
       <View>
-        <Text onPress={updateState}>{name}</Text>
+        <Text onPress={updateState(name)}>{name}</Text>
       </View>
     );
   }
