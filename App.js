@@ -27,7 +27,7 @@ export default class App extends Component {
         <Text style={{ textAlign: 'center' }}>{this.state.count}
         </Text>
         <Button onPress={this.increment} title='+'></Button>
-        <Button onPress={this.increment} title='-'></Button>
+        <Button onPress={this.decrement} title='-'></Button>
 
       </SafeAreaView>
     )
