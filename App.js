@@ -75,15 +75,16 @@ class App3 extends Component {
 }
 
 class App4 extends Component {
-  constructor(props){
+  constructor(props) {
     super(props)
+    this.state = { myState: this.props.myState }
   }
 
-  updateState = (props) => this.setState({ myState: 'updated' })
+  updateState = () => this.setState({ myState: 'updated' })
   render() {
     return (
       <View>
-        <Text onPress={this.updateState}> {this.props.myState} </Text>
+        <Text style={{color:'red'}} onPress={this.updateState}> {this.state.myState}  </Text>
       </View>
     );
   }
@@ -92,16 +93,16 @@ class App4 extends Component {
 export default class App extends Component {
   constructor(props) {
     super(props)
-    this.state = { name: '12232' }
+    this.state = { name: 'Hello1' }
   }
   render() {
     return (
       <View style={{ margin: 150 }}>
 
-
-
         <App4 myState={this.state.name} ></App4>
-
+        <Text>
+          {this.state.name}
+        </Text>
       </View>
     )
   }
