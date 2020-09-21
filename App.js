@@ -63,8 +63,7 @@ export default class App extends Component {
   }
   UNSAFE_componentWillUpdate() {
 
-    Alert.alert('Updated')
-
+    
     console.log('component wil update')
     console.log('<------------------>')
 
