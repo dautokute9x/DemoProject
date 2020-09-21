@@ -24,6 +24,7 @@ export default class App extends Component {
   }
   increment = () => { this.setState({ count: this.state.count + 1 }) }
   decrement = () => { this.setState({ count: this.state.count - 1 }) }
+  
 
   render() {
     console.log('render')
@@ -34,12 +35,16 @@ export default class App extends Component {
         <Text style={{ textAlign: 'center', marginTop: 250, fontSize: 50 }}>{this.state.count}
         </Text>
         <ChildComponent childIncrement={this.increment} childDecrement={this.decrement}> </ChildComponent>
+        <Button onPress={this.componentWillUnMount} title='Stop'></Button>
+        
+
       </SafeAreaView>
     )
   }
 
 
   componentDidMount() {
+    time= setInterval (() =>{this.setState({count:this.state.count +1})},3000)
     console.log('component did mount', this.state.count)
     console.log('<------------------>')
   }
@@ -68,6 +73,10 @@ export default class App extends Component {
     console.log('<------------------>')
 
   }
+  componentWillUnMount(){
+  clearInterval(time)
+   
+  }
 }
 
 
@@ -82,6 +91,7 @@ class ChildComponent extends Component {
         <Button onPress={this.props.childIncrement} title='+'  >
         </Button>
         <Button onPress={this.props.childDecrement} title='-'></Button>
+        
 
       </SafeAreaView>
     )
